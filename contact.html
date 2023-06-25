@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="description"
+    content="Discover the work of Harsh, a talented frontend web developer. Explore his portfolio website showcasing stunning designs and seamless functionality. Get in touch with Harsh today for your next project!">
+
+  <meta name="keywords" content="frontend web developer, portfolio, web design, web development, HTML, CSS, JavaScript">
+
+  <!--=============================== Bootstrap CDN for CSS =====================================-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!--============================== Google Fonts CDN ==============================================-->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dekko&family=Josefin+Sans:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&family=Raleway+Dots&family=Raleway:wght@300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <!--=========================== CSS File =========================================================-->
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="responsive.css" />
+
+  <!--========================= Favicon ========================================-->
+
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+
+  <title>Harsh Kushwaha | Frontend Developer</title>
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-6">
+          <div class="mt-3">
+            <a href="index.html" aria-label="homepage">
+              <img alt="" src="images/logo2.webp" class="logo" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="index.html" aria-label="homepage" class="form-icon form-icon1">
+      <img src="images/close.webp" alt="..." width="22px">
+      <span class="mytooltip">Close</span>
+    </a>
+    <a class="form-icon form-icon2" aria-label="reset the form" onclick="refresh()">
+      <img src="images/refresh.webp" alt="..." width="22px">
+      <span class="mytooltip">Reload</span>
+    </a>
+    <div class="form-box mt-5 pt-1 mx-0">
+      <h3 class="text-center form-heding1 mt-4 mx-2">You're One Step Closer! Let's Connect.</h3>
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-5 col-md-6 col-sm-8">
+          <form class="form" onsubmit="return formValidate()">
+            <div class="row">
+              <div class="col-lg-12">
+                <label class="form-label">Full Name <span class="required-input" id="nameErr">*</span></label>
+                <input class="form-control" name="fullname" id="name" />
+              </div>
+              <div class="col-lg-12">
+                <label class="form-label">Email <span class="required-input" id="mailErr">*</span></label>
+                <input class="form-control" name="email" id="mail" />
+              </div>
+              <div class="col-lg-12">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" name="message" style="height:160px;resize: none;"></textarea>
+                <div class="text-center mt-5 pt-3 mb-5 pb-5">
+                  <button type="submit" class="btn-submit">Send</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--======================== Footer =======================================-->
+
+  <section class="top-margin">
+    <div class="container">
+      <div class="row justify-content-center align-items-center bg-dark px-3 py-4 mx-0 convo-box">
+        <div class="col-lg-10">
+          <p class="f-6 text-center text-light">Thank you for visiting my portfolio website. If you would like to
+            collaborate on a
+            project, please don't hesitate to reach out. You can use the contact form above or email me directly at <a
+              href="mailto:knp.harsh@gmail.com" style="text-decoration: none;"><b>knp.harsh@gmail.com</b></a>. I will do
+            my best to respond to your message as soon as possible. I look forward to hearing from you and working
+            together in the future.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid footer">
+      <div class="row align-items-center justify-content-center mt-5">
+        <div class="col-lg-8">
+          <div class="text-center my-5 pt-5">
+            <img alt="..." src="images/logo1.webp" width="80px" class="mt-5 footer-logo" />
+            <div class="mt-5 text-center footer-icon">
+              <a aria-label="my social links" href="https://github.com/theharshdev" class="me-4"><img
+                  src="images/github1.webp" alt="..." width="40px"></a>
+              <a aria-label="my social links" href="https://www.linkedin.com/in/theharshdev/" class="me-4"><img
+                  src="images/linkedin.webp" alt="..." width="40px"></a>
+              <a aria-label="my social links" href="https://twitter.com/itsharshdev"><img src="images/twitter.webp"
+                  alt="..." width="40px"></a>
+              <p class="f-5 mt-3">Let's work together on your next project.</p>
+              <p class="text-center mt-3 ">Crafted by Me &#169;<span class="heading-font"> Harsh Kushwaha</span></p>
+              <p class="font-oswald f-5 fw-bold">2023</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--===================== To Top Button ======================-->
+
+  <button onclick="topFunction()" id="myBtn" class="btn-top" aria-label="Go to Top"><img src="images/up.webp" alt="..."
+      width="42px"></button>
+
+  <!--========================== Bootstrap CDN ====================================================-->
+  <script type="text/javascript" src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
