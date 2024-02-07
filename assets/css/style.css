@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Archivo", sans-serif;
+  scroll-behavior: smooth;
+  cursor: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.font1 {
+  font-family: "Climate Crisis", sans-serif !important;
+}
+
+.font3 {
+  font-family: "Six Caps", sans-serif !important;
+}
+
+::-moz-selection {
+  color: white;
+  background: #f97316;
+}
+
+::selection {
+  color: white;
+  background: #f97316;
+}
+
+#cursorBg,
+#cursor {
+  transition: 0.1s linear;
+}
+
+#cursorDot {
+  transition: 0.3s linear;
+}
+
+.navTxt:hover {
+  color: transparent;
+  -webkit-text-stroke: 2px black;
+}
+
+.textAnimation {
+  animation: textAnimation 20s linear infinite;
+}
+
+@keyframes textAnimation {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.ringimgBg {
+  animation: ringimgBg 10s linear infinite;
+}
+
+@keyframes ringimgBg {
+  20% {
+    transform: translateY(-30px);
+  }
+  40% {
+    transform: translateY(-4px);
+  }
+  60% {
+    transform: translateY(-30px);
+  }
+  80% {
+    transform: translateY(-5px);
+  }
+  90% {
+    transform: translateY(-25px);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  * {
+    cursor: auto !important;
+  }
+}

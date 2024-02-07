@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- 
+  npx tailwindcss -i ./src/input.css -o ./dist/assets/css/output.css --watch 
+  -->
+
+  <head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <!-- Primary Meta Tags -->
+    <title>Harsh Kushwaha | Frontend Web Developer, Hire me!</title>
+    <meta
+      name="title"
+      content="Harsh Kushwaha | Frontend Web Developer, Hire me!"
+    />
+    <meta
+      name="description"
+      content="I'm Harsh Kushwaha, a frontend web developer fueled by an insatiable curiosity for all things code and design. From the elegant simplicity of HTML to the intricate dance of JavaScript, I thrive on the ever-evolving challenges of the web development world. But beyond the lines of code, I am a storyteller, shaping digital narratives that engage and inspire."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://theharshdev.github.io/me" />
+    <meta
+      property="og:title"
+      content="Harsh Kushwaha | Frontend Web Developer, Hire me!"
+    />
+    <meta
+      property="og:description"
+      content="I'm Harsh Kushwaha, a frontend web developer fueled by an insatiable curiosity for all things code and design. From the elegant simplicity of HTML to the intricate dance of JavaScript, I thrive on the ever-evolving challenges of the web development world. But beyond the lines of code, I am a storyteller, shaping digital narratives that engage and inspire."
+    />
+    <meta
+      property="og:image"
+      content="https://theharshdev.github.io/me/assets/images/metaImg.webp"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://theharshdev.github.io/me" />
+    <meta
+      property="twitter:title"
+      content="Harsh Kushwaha | Frontend Web Developer, Hire me!"
+    />
+    <meta
+      property="twitter:description"
+      content="I'm Harsh Kushwaha, a frontend web developer fueled by an insatiable curiosity for all things code and design. From the elegant simplicity of HTML to the intricate dance of JavaScript, I thrive on the ever-evolving challenges of the web development world. But beyond the lines of code, I am a storyteller, shaping digital narratives that engage and inspire."
+    />
+    <meta
+      property="twitter:image"
+      content="https://theharshdev.github.io/me/assets/images/metaImg.webp"
+    />
+    <!-- Google Font CDN Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=Climate+Crisis&family=Six+Caps&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons CSS File Link -->
+    <link href="assets/css/bootstrap-icon.css" rel="stylesheet" />
+    <!-- Tailwind CSS File Link -->
+    <link href="assets/css/output.css" rel="stylesheet" />
+    <!-- Custom CSS File Link -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Preloader -->
+    <div
+      id="preloader"
+      class="h-screen w-full flex justify-end items-end overflow-hidden fixed top-0 left-0 z-[99] shadow-2xl shadow-black/30"
+      style="background-image: url('assets/images/bg.webp'); transition: 2s"
+    >
+      <div class="lg:px-12 md:px-10 sm:px-8 px-5 sm:py-12 py-32 w-full">
+        <div id="loadingLine" class="bg-zinc-800 h-0.5 w-0 mb-5"></div>
+        <div
+          id="loadingTxt"
+          class="text-zinc-900 md:text-base text-sm my-5 font-medium"
+        >
+          (Fake Loading)
+        </div>
+        <div class="flex justify-end w-full">
+          <h3
+            class="text-orange-500 lg:text-[300px] md:text-[250px] sm:text-[150px] text-[100px] font3 leading-none"
+          >
+            <span id="output" class="font3 text-black">0</span>%
+          </h3>
+        </div>
+      </div>
+    </div>
+    <!-- Cursor -->
+    <div class="lg:block hidden relative z-[999] mix-blend-difference">
+      <div
+        id="cursor"
+        class="w-9 h-9 hidden rounded-full fixed z-50 -translate-x-1/2 -translate-y-1/2 pointer-events-none mix-blend-difference"
+      >
+        <div
+          id="cursorBg"
+          class="w-full h-full rounded-full bg-white pointer-events-none mix-blend-difference flex justify-center items-center"
+        ></div>
+      </div>
+      <!-- Cursor dot -->
+      <div
+        id="cursorDot"
+        class="w-[7px] h-[7px] hidden rounded-full bg-white fixed z-50 -translate-x-1/2 -translate-y-1/2 pointer-events-none mix-blend-difference"
+      ></div>
+    </div>
+    <!-- Remaining body content -->
+    <div id="remainingBody" class="h-0 overflow-x-hidden">
+      <!-- Scroll percentage btn -->
+      <button
+        type="button"
+        class="md:text-sm text-xs font-light text-zinc-300 mix-blend-difference fixed sm:bottom-10 bottom-20 left-0 z-40 -rotate-90 border border-zinc-300 rounded-full py-px px-2"
+      >
+        <span id="scrollPercentage" class="font2"></span>%
+      </button>
+      <!-- paper background -->
+      <div
+        class="-z-50 fixed top-0 left-0 w-full h-full"
+        style="background-image: url('assets/images/bg.webp')"
+      ></div>
+      <!-- lines -->
+      <div
+        class="flex fixed top-0 left-0 w-full h-full -z-40 lg:px-24 md:px-16 sm:px-14 px-8"
+      >
+        <div class="w-1/2 border-x border-orange-500/40"></div>
+        <div class="w-1/2 border-x border-orange-500/40 border-s-0"></div>
+      </div>
+      <!-- line -->
+      <div
+        id="line"
+        class="h-1 bg-orange-500 fixed top-0 left-0 w-0 z-40"
+      ></div>
+      <!-- Navigation menu -->
+      <nav class="fixed top-0 left-0 w-full z-50 mix-blend-difference">
+        <div class="container mx-auto px-5 py-4">
+          <div class="flex justify-between items-center">
+            <a
+              href="assets/resume/myResume.pdf"
+              download=""
+              class="block cursorScale downloadCv p-3 static"
+            >
+              <i
+                class="bi bi-cloud-download cursorScale downloadCv static text-2xl text-white"
+              ></i>
+            </a>
+            <div class="flex items-center justify-end">
+              <div
+                id="copyMailTxt"
+                class="cursorScale copyMail hover:opacity-10 transition-all py-2 ps-2"
+              >
+                <h3
+                  class="text-white cursorScale copyMail mix-blend-difference sm:text-sm text-xs font-light leading-none flex items-center justify-end"
+                >
+                  <span
+                    class="block cursorScale copyMail bg-pink-500 w-2.5 h-2.5 me-1 rounded-full"
+                  ></span
+                  >Open to work.
+                </h3>
+                <h3
+                  id="mailTxt"
+                  class="text-white cursorScale copyMail mix-blend-difference sm:text-sm text-xs font-light leading-none text-end"
+                >
+                  knp.harsh@gmail.com
+                </h3>
+              </div>
+              <button
+                id="menuBtn"
+                type="button"
+                class="cursorScale lg:w-16 lg:h-16 md:w-14 md:h-14 w-12 h-12 rounded-full border text-white border-white flex justify-center items-center ms-3 backdrop-blur-sm"
+              >
+                <i
+                  class="bi bi-list lg:text-4xl sm:text-3xl text-2xl cursorScale leading-3"
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Menu -->
+      <div
+        id="menu"
+        class="fixed top-0 left-0 w-full h-screen z-40 translate-x-full border-s border-zinc-700/50 shadow-2xl shadow-black/20"
+        style="background-image: url('assets/images/bg.webp')"
+      >
+        <!-- Ring image -->
+        <div
+          class="lg:w-[500px] md:w-[450px] sm:w-[400px] w-[330px] opacity-40 absolute top-0 left-1/2 -translate-x-1/2 -z-10"
+        >
+          <img
+            src="assets/images/ringCircle.webp"
+            alt="..."
+            class="ringimgBg w-full"
+          />
+        </div>
+        <!-- lines -->
+        <div
+          class="flex justify-between fixed top-0 left-0 w-full h-full -z-10 lg:px-24 md:px-16 sm:px-14 px-8"
+        >
+          <div class="border-s border-orange-500/40"></div>
+          <div class="border-x border-orange-500/40 border-s-0"></div>
+          <div class="border-x border-orange-500/40 border-s-0"></div>
+          <div
+            class="border-x border-orange-500/40 border-s-0 md:block hidden"
+          ></div>
+        </div>
+        <!-- Horizontal line in the background -->
+        <div
+          class="absolute w-full border-t border-orange-500/40 top-1/2 -translate-y-1/2 -z-10"
+        ></div>
+        <!-- Menu buttons -->
+        <div class="container py-14 mt-14 px-5 mx-auto">
+          <div class="overflow-hidden">
+            <div
+              class="rotate-[20deg] inline-block translate-y-[250%] opacity-0 navLinks"
+            >
+              <button
+                type="button"
+                class="cursorScale lg:text-6xl md:text-5xl sm:text-4xl text-3xl font1 navTxt text-black uppercase p-1 inline-block leading-none transition-all hover:translate-x-8 homeBtn"
+              >
+                Home .
+              </button>
+            </div>
+          </div>
+          <div class="overflow-hidden">
+            <div
+              class="rotate-[20deg] inline-block translate-y-[250%] opacity-0 navLinks"
+            >
+              <button
+                type="button"
+                class="cursorScale lg:text-6xl md:text-5xl sm:text-4xl text-3xl font1 navTxt text-black uppercase p-1 inline-block leading-none transition-all hover:translate-x-8 aboutBtn"
+              >
+                about .
+              </button>
+            </div>
+          </div>
+          <div class="overflow-hidden">
+            <div
+              class="rotate-[20deg] inline-block translate-y-[250%] opacity-0 navLinks"
+            >
+              <button
+                type="button"
+                class="cursorScale lg:text-6xl md:text-5xl sm:text-4xl text-3xl font1 navTxt text-black uppercase p-1 inline-block leading-none transition-all hover:translate-x-8 portfolioBtn"
+              >
+                portfolio .
+              </button>
+            </div>
+          </div>
+          <div class="overflow-hidden">
+            <div
+              class="rotate-[20deg] inline-block translate-y-[250%] opacity-0 navLinks"
+            >
+              <button
+                type="button"
+                class="cursorScale lg:text-6xl md:text-5xl sm:text-4xl text-3xl font1 navTxt text-black uppercase p-1 inline-block leading-none transition-all hover:translate-x-8 contactBtn"
+              >
+                connect .
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Menu text sider -->
+        <div class="w-full overflow-hidden">
+          <div class="flex items-center w-full">
+            <h3
+              class="lg:text-8xl md:text-7xl sm:text-6xl text-5xl px-4 text-transparent uppercase font1 textAnimation whitespace-nowrap"
+              style="-webkit-text-stroke: 2px #f97316"
+            >
+              leave a lasting impression on those who interact with it.
+            </h3>
+            <h3
+              class="lg:text-8xl md:text-7xl sm:text-6xl text-5xl px-4 text-transparent uppercase font1 textAnimation whitespace-nowrap"
+              style="-webkit-text-stroke: 2px #f97316"
+            >
+              leave a lasting impression on those who interact with it.
+            </h3>
+            <h3
+              class="lg:text-8xl md:text-7xl sm:text-6xl text-5xl px-4 text-transparent uppercase font1 textAnimation whitespace-nowrap"
+              style="-webkit-text-stroke: 2px #f97316"
+            >
+              leave a lasting impression on those who interact with it.
+            </h3>
+          </div>
+        </div>
+        <!-- Menu slide social icons -->
+        <div class="flex justify-center items-center mt-6">
+          <a
+            href="https://www.linkedin.com/in/theharshdev/"
+            class="cursorScale text-zinc-400 hover:text-white mix-blend-difference text-2xl px-2 font-extrabold"
+          >
+            in
+          </a>
+          <a
+            href="https://wa.me/+918737812696"
+            class="cursorScale text-zinc-400 hover:text-white mix-blend-difference text-2xl px-2"
+          >
+            <i class="bi bi-whatsapp cursorScale"></i>
+          </a>
+          <a
+            href="https://twitter.com/itsharshdev"
+            class="cursorScale text-zinc-400 hover:text-white mix-blend-difference text-2xl px-2"
+          >
+            <i class="bi bi-twitter cursorScale"></i>
+          </a>
+          <a
+            href="mailto:knp.harsh@gmail.com"
+            class="cursorScale text-zinc-400 hover:text-white mix-blend-difference text-2xl px-2"
+          >
+            <i class="bi bi-envelope-open cursorScale"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Hero section -->
+      <main id="homeSection">
+        <div class="min-h-screen flex items-center">
+          <div class="w-full py-14">
+            <div class="border-y border-orange-500/40 px-5 relative">
+              <!-- Background ring image -->
+              <div
+                class="absolute overflow-hidden w-full top-0 left-1/2 -translate-x-1/2 -z-10 flex justify-center"
+              >
+                <div
+                  id="ringCircle"
+                  class="lg:w-[550px] md:w-[450px] sm:w-[400px] w-[330px] opacity-20 translate-x-full"
+                >
+                  <img
+                    src="assets/images/ringCircle.webp"
+                    alt="..."
+                    class="w-full ringimgBg"
+                  />
+                </div>
+              </div>
+              <!-- main content -->
+              <div class="container mx-auto lg:ps-10">
+                <h2
+                  id="mainTopTxt"
+                  class="text-orange-500 lg:text-7xl md:text-6xl sm:text-5xl text-4xl font3 pt-10 opacity-0 -translate-x-full"
+                >
+                  hi, i'm Harsh
+                </h2>
+                <h1
+                  class="font1 uppercase lg:text-7xl md:text-6xl sm:text-5xl text-2xl block mt-4"
+                >
+                  <div class="font1">
+                    <span
+                      class="scale-y-150 block text-black overflow-hidden lg:pb-5 md:pb-4 sm:pb-3 pb-2"
+                      ><span
+                        class="inView opacity-0 font1 block translate-y-full leading-none"
+                        >Frontend</span
+                      ></span
+                    >
+                    <span
+                      class="scale-y-150 block text-black overflow-hidden lg:pb-5 md:pb-4 sm:pb-3 pb-2"
+                      ><span
+                        class="inView opacity-0 font1 block translate-y-full leading-none"
+                        >Developer &</span
+                      ></span
+                    >
+                    <span
+                      class="scale-y-150 block text-black overflow-hidden lg:pb-5 md:pb-4 sm:pb-3 pb-2"
+                      ><span
+                        class="inView opacity-0 font1 block translate-y-full leading-none"
+                        >Photography</span
+                      ></span
+                    >
+                    <span
+                      class="scale-y-150 block text-black overflow-hidden lg:pb-5 md:pb-4 sm:pb-3 pb-2"
+                      ><span
+                        class="inView opacity-0 font1 block translate-y-full leading-none"
+                        >Hobbyist</span
+                      ></span
+                    >
+                  </div>
+                </h1>
+                <div class="flex justify-end md:-mt-28 pb-5 mt-8 w-full">
+                  <!-- About Button -->
+                  <button type="button" class="cursorScale aboutBtn rotate-45">
+                    <img
+                      src="assets/images/arrow.webp"
+                      alt="..."
+                      class="lg:w-12 md:w-11 sm:w-10 w-8 cursorScale aboutBtn opacity-80 absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 brightness-0 saturate-0"
+                    />
+                    <img
+                      src="assets/images/aboutRing.webp"
+                      alt="..."
+                      class="lg:w-40 md:w-36 sm:w-32 w-28 cursorScale aboutBtn opacity-90 animate-spin"
+                      style="animation-duration: 10s"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- About Me -->
+      <section id="aboutSection" class="sm:py-36 py-14">
+        <!-- Namaskaar Image section -->
+        <div class="relative w-screen overflow-hidden">
+          <img
+            id="namaskaar"
+            src="assets/images/hello.webp"
+            alt="..."
+            class="w-full absolute top-1/2 -translate-y-1/2 left-0 -z-10 opacity-0 px-4 scale-[3]"
+          />
+          <div class="container mx-auto px-5">
+            <div class="flex justify-center items-center w-full h-full">
+              <div
+                id="helloBox"
+                class="relative group flex justify-center items-center md:w-96 md:h-96 sm:w-80 sm:h-80 w-72 h-72"
+              >
+                <h3
+                  id="hellotxt"
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font1 md:text-3xl sm:text-2xl text-sm text-center text-black"
+                >
+                  <span
+                    id="helloTxt2"
+                    class="lg:tracking-[6rem] md:tracking-[4rem] sm:tracking-[3rem] tracking-[1.5rem] font1"
+                    >Hell</span
+                  >o
+                </h3>
+                <div
+                  id="box1"
+                  class="md:w-24 md:h-96 sm:w-20 sm:h-80 w-16 h-72 border border-zinc-600 absolute top-0 left-1/2 -translate-x-1/2"
+                ></div>
+                <div
+                  id="box2"
+                  class="md:w-24 md:h-96 sm:w-20 sm:h-80 w-16 h-72 border border-zinc-600 absolute top-0 left-1/2 -translate-x-1/2"
+                ></div>
+                <div
+                  class="md:w-24 md:h-96 sm:w-20 sm:h-80 w-16 h-72 border border-zinc-600"
+                ></div>
+                <div
+                  id="box3"
+                  class="md:w-24 md:h-96 sm:w-20 sm:h-80 w-16 h-72 border border-zinc-600 absolute top-0 left-1/2 -translate-x-1/2"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- About text and image capsul section -->
+        <div class="container mx-auto px-5 lg:pt-56 pt-48 lg:pb-44 pb-32">
+          <h3
+            id="aboutTxt"
+            class="uppercase opacity-0 font-light text-black lg:indent-96 md:indent-56 sm:indent-44 indent-20 lg:text-8xl md:text-6xl sm:text-5xl text-4xl"
+          >
+            Hii I am
+            <span
+              class="lg:w-52 md:w-28 sm:w-20 w-14 lg:h-20 md:h-12 sm:h-10 h-7 inline-block relative"
+            >
+              <span
+                class="aboutInView opacity-0 border border-black rounded-full absolute top-0 left-0 w-full h-full translate-y-full inline-block bg-cover bg-center bg-no-repeat"
+                style="background-image: url('assets/images/img1.webp')"
+              >
+              </span>
+            </span>
+            <img
+              src="assets/images/starCircle.webp"
+              alt="..."
+              class="lg:w-24 md:w-16 sm:w-14 w-10 inline opacity-80 animate-spin"
+              style="animation-duration: 10s"
+            />
+            Harsh
+            <span
+              class="lg:w-52 md:w-28 sm:w-20 w-14 lg:h-20 md:h-12 sm:h-10 h-7 inline-block relative"
+            >
+              <span
+                class="aboutInView opacity-0 border border-black rounded-full absolute top-0 left-0 w-full h-full translate-y-full inline-block bg-cover bg-center bg-no-repeat"
+                style="background-image: url('assets/images/img2.webp')"
+              >
+              </span>
+            </span>
+            Kushwaha,
+            <img
+              src="assets/images/starCircle.webp"
+              alt="..."
+              class="lg:w-24 md:w-16 sm:w-14 w-10 inline opacity-80 animate-spin"
+              style="animation-duration: 10s"
+            />
+            a frontend
+            <span
+              class="lg:w-52 md:w-28 sm:w-20 w-14 lg:h-20 md:h-12 sm:h-10 h-7 inline-block relative"
+            >
+              <span
+                class="aboutInView opacity-0 border border-black rounded-full absolute top-0 left-0 w-full h-full translate-y-full inline-block bg-cover bg-center bg-no-repeat"
+                style="background-image: url('assets/images/img3.webp')"
+              >
+              </span>
+            </span>
+            Developer
+            <span
+              class="lg:w-52 md:w-28 sm:w-20 w-14 lg:h-20 md:h-12 sm:h-10 h-7 inline-block relative"
+            >
+              <span
+                class="aboutInView opacity-0 border border-black rounded-full absolute top-0 left-0 w-full h-full translate-y-full inline-block bg-cover bg-center bg-no-repeat"
+                style="background-image: url('assets/images/img4.webp')"
+              >
+              </span>
+            </span>
+            <span class="lg:ps-72 md:ps-44 sm:ps-36 ps-12">
+              fueled
+              <span
+                class="lg:w-52 md:w-28 sm:w-20 w-14 lg:h-20 md:h-12 sm:h-10 h-7 inline-block relative"
+              >
+                <span
+                  class="aboutInView opacity-0 border border-black rounded-full absolute top-0 left-0 w-full h-full translate-y-full inline-block bg-cover bg-center bg-no-repeat"
+                  style="background-image: url('assets/images/img5.webp')"
+                >
+                </span>
+              </span>
+            </span>
+            with creativity.
+            <img
+              src="assets/images/starCircle.webp"
+              alt="..."
+              class="lg:w-24 md:w-16 sm:w-14 w-10 inline opacity-80 animate-spin"
+              style="animation-duration: 10s"
+            />
+          </h3>
+        </div>
+        <!-- Contact links section -->
+        <div
+          class="container mx-auto pt-16 pb-56 px-5 uppercase lg:text-8xl md:text-7xl sm:text-6xl text-[3rem] sm:leading-none leading-[2.8rem]"
+        >
+          <a
+            href="https://wa.me/+918737812696"
+            class="paragraph inline-block overflow-hidden cursorScale text-zinc-800 lg:pe-4 md:pe-3 sm:pe-2 pe-1 lg:border-e-4 md:border-e-2 border-e border-orange-500"
+            >Whatsapp</a
+          >
+          <a
+            href="https://www.linkedin.com/in/theharshdev/"
+            class="paragraph inline-block overflow-hidden cursorScale text-zinc-800 lg:pe-4 md:pe-3 sm:pe-2 pe-1 lg:border-e-4 md:border-e-2 border-e border-orange-500"
+            >linkedin</a
+          >
+          <a
+            href="https://github.com/theharshdev"
+            class="paragraph inline-block overflow-hidden cursorScale text-zinc-800 lg:pe-4 md:pe-3 sm:pe-2 pe-1 lg:border-e-4 md:border-e-2 border-e border-orange-500"
+            >github</a
+          >
+          <a
+            href="https://twitter.com/itsharshdev"
+            class="paragraph inline-block overflow-hidden cursorScale text-zinc-800 lg:pe-4 md:pe-3 sm:pe-2 pe-1 lg:border-e-4 md:border-e-2 border-e border-orange-500"
+            >twitter</a
+          >
+          <a
+            href="mailto:knp.harsh@gmail.com"
+            class="paragraph inline-block overflow-hidden cursorScale text-zinc-800 lg:pe-4 md:pe-3 sm:pe-2 pe-1 lg:border-e-4 md:border-e-2 border-e border-orange-500"
+            >mail me</a
+          >
+          <a
+            href="tel:+918737812696"
+            class="paragraph inline-block overflow-hidden cursorScale text-zinc-800 sm:pe-0 pe-1 sm:border-e-0 border-e border-orange-500"
+            >call me</a
+          >
+        </div>
+        <!-- Skills text slider -->
+        <div class="w-full overflow-hidden">
+          <div class="flex items-center w-full">
+            <div
+              class="lg:text-7xl md:text-6xl sm:text-5xl text-4xl text-black px-4 uppercase textAnimation whitespace-nowrap flex items-center"
+            >
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                html
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                css
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                javascript
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                sass
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                scss
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                bootstrap
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                tailwindcss
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                jquery
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                git
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                github
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+            </div>
+            <div
+              class="lg:text-7xl md:text-6xl sm:text-5xl text-4xl text-black px-4 uppercase font1 textAnimation whitespace-nowrap flex items-center"
+            >
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                html
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                css
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                javascript
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                sass
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                scss
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                bootstrap
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                tailwindcss
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                jquery
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                git
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                github
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+            </div>
+            <div
+              class="lg:text-7xl md:text-6xl sm:text-5xl text-4xl text-black px-4 uppercase font1 textAnimation whitespace-nowrap flex items-center"
+            >
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                html
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                css
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                javascript
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                sass
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                scss
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                bootstrap
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                tailwindcss
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                jquery
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                git
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+              <h3 class="lg:px-10 md:px-8 sm:px-6 px-4 whitespace-nowrap">
+                github
+              </h3>
+              <i
+                class="bi bi-x-lg lg:text-3xl md:text-2xl sm:text-xl text-lg text-orange-600"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- website Image section -->
+      <section>
+        <div
+          class="container mx-auto lg:py-24 md:py-14 sm:py-12 pt-14 pb-0 px-5"
+        >
+          <div
+            id="websiteImgBox"
+            class="flex w-full border border-zinc-600 scale-90 opacity-0"
+          >
+            <div
+              class="sm:w-[80%] w-[70%] bg-black min-h-full p-5 flex justify-center items-center"
+            >
+              <img
+                src="assets/images/websites.webp"
+                alt="..."
+                class="block w-full"
+              />
+            </div>
+            <div class="sm:w-[20%] w-[30%] h-full p-3">
+              <img
+                src="assets/images/stamp.webp"
+                alt="..."
+                class="block w-full"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Text section -->
+      <section>
+        <div class="py-32 overflow-hidden">
+          <div id="textSection" class="relative py-6">
+            <div
+              id="textSectionBg"
+              class="absolute w-1/2 h-full mix-blend-difference bg-white -z-10 top-0 left-1/2 translate-x-full opacity-0"
+            ></div>
+            <div
+              id="textSectionTxt"
+              class="container mx-auto px-5 text-end font-light lg:text-7xl mix-blend-difference md:text-6xl sm:text-5xl text-3xl uppercase translate-x-full opacity-0"
+            >
+              <span
+                id="textReveal"
+                class="text-white/30 bg-clip-text bg-no-repeat bg-gradient-to-r from-white to-white inline"
+                style="background-size: 0%"
+              >
+                Would you like to <i class="bi bi-braces-asterisk"></i> know
+                more? Please feel free to
+                <i class="bi bi-braces-asterisk"></i> reach out to hear how, I
+                can help to develop your brand aesthetically, or
+                <i class="bi bi-braces"></i> for any other design
+                <i class="bi bi-braces"></i> needs you might have.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Work section -->
+      <section id="PortfolioSection" class="py-32">
+        <div class="container mx-auto px-5">
+          <h3
+            id="portfolioTxt"
+            class="font3 uppercase lg:text-[400px] md:text-[360px] sm:text-[300px] text-[150px] text-white mix-blend-difference leading-none text-center mb-28"
+          >
+            portfolio
+          </h3>
+        </div>
+        <div class="container mx-auto px-5">
+          <div class="flex flex-wrap items-center mt-10">
+            <p
+              id="workBottomPara"
+              class="text-black opacity-0 -translate-x-full lg:w-1/2 md:w-2/3 sm:w-3/4 w-full lg:text-4xl md:text-3xl sm:text-2xl text-xl font-medium"
+            >
+              <span
+                class="bg-orange-500 text-white font-bold px-2 lg:text-7xl md:text-6xl sm:text-5xl text-4xl"
+                >T</span
+              >hese projects are more than code; they are a symphony of
+              creativity, bringing forth an unparalleled fusion of functionality
+              and user-centric design.
+            </p>
+            <img
+              id="crossImage"
+              src="assets/images/crosses.webp"
+              alt="..."
+              class="lg:w-1/2 md:w-1/3 sm:w-1/4 w-full lg:p-14 md:p-10 sm:block hidden sm:p-8 p-4 opacity-0 translate-y-full"
+            />
+          </div>
+        </div>
+        <div class="pt-32 overflow-hidden">
+          <div class="mb-12 container mx-auto px-5">
+            <h3
+              class="text-black lg:text-xl md:text-lg sm:text-base text-sm font-light leading-none"
+            >
+              <span class="uppercase">Projects</span>
+            </h3>
+          </div>
+          <div>
+            <!-- Project Box -->
+            <div
+              class="block w-full h-full relative group border-y border-black/20 py-12 group projectBox overflow-hidden"
+            >
+              <div
+                class="absolute bottom-0 left-0 w-full h-0 lg:group-hover:h-full bg-white mix-blend-difference -z-10"
+                style="transition: 0.4s"
+              ></div>
+              <div class="lg:block hidden">
+                <img
+                  src="assets/images/arrow.webp"
+                  alt="..."
+                  class="fixed projectArrow z-0 -translate-x-full -translate-y-1/2 pointer-events-none w-64 mix-blend-difference -rotate-45 hidden lg:group-hover:block"
+                  style="transition: 0.7s linear"
+                />
+              </div>
+              <div class="container mx-auto px-5">
+                <div class="flex justify-end mb-10">
+                  <a
+                    target="_blank"
+                    href="https://theharshdev.github.io/anime/"
+                    class="group lg:text-3xl md:text-2xl sm:text-xl text-lg leading-none lg:w-16 lg:h-16 md:w-14 md:h-14 sm:w-12 sm:h-12 w-10 h-10 overflow-hidden rounded-full border border-zinc-400 flex justify-center items-center text-zinc-400 mix-blend-difference cursorScale viewProject projectLink opacity-0 -translate-y-full"
+                  >
+                    <i class="bi bi-arrow-up-right cursorScale viewProject"></i>
+                  </a>
+                </div>
+                <div class="flex flex-wrap w-full">
+                  <div class="lg:w-[70%] sm:w-3/5 w-full p-2">
+                    <h3
+                      class="text-orange-500 font3 lg:text-9xl md:text-7xl sm:text-6xl text-5xl leading-none projectHeading opacity-0 translate-y-full flex"
+                    >
+                      <span
+                        class="pe-3 text-transparent font1"
+                        style="-webkit-text-stroke: 1px #f97316"
+                        >1.</span
+                      >Practice Portfolio (portfolio webiste)
+                    </h3>
+                  </div>
+                  <div class="lg:w-[30%] sm:w-2/5 w-full p-2">
+                    <p
+                      class="text-zinc-300 mix-blend-difference lg:text-2xl md:text-xl sm:text-lg text-sm font-light projectParagraph opacity-0 translate-x-full"
+                    >
+                      A showcase of my Tailwind CSS expertise, highlighting a
+                      interactive design for a sleek and responsive user
+                      experience.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Project Box -->
+            <div
+              class="block w-full h-full relative group border-b border-black/20 py-12 group projectBox overflow-hidden"
+            >
+              <div
+                class="absolute bottom-0 left-0 w-full h-0 lg:group-hover:h-full bg-white mix-blend-difference -z-10"
+                style="transition: 0.4s"
+              ></div>
+              <div class="lg:block hidden">
+                <img
+                  src="assets/images/arrow.webp"
+                  alt="..."
+                  class="fixed projectArrow z-0 -translate-x-full -translate-y-1/2 pointer-events-none w-64 mix-blend-difference -rotate-45 hidden lg:group-hover:block"
+                  style="transition: 0.7s linear"
+                />
+              </div>
+              <div class="container mx-auto px-5">
+                <div class="flex justify-end mb-10">
+                  <a
+                    target="_blank"
+                    href="https://theharshdev.github.io/weather/"
+                    class="group lg:text-3xl md:text-2xl sm:text-xl text-lg leading-none lg:w-16 lg:h-16 md:w-14 md:h-14 sm:w-12 sm:h-12 w-10 h-10 overflow-hidden rounded-full border border-zinc-400 flex justify-center items-center text-zinc-400 mix-blend-difference cursorScale viewProject projectLink opacity-0 -translate-y-full"
+                  >
+                    <i class="bi bi-arrow-up-right cursorScale viewProject"></i>
+                  </a>
+                </div>
+                <div class="flex flex-wrap w-full">
+                  <div class="lg:w-[70%] sm:w-3/5 w-full p-2">
+                    <h3
+                      class="text-orange-500 font3 lg:text-9xl md:text-7xl sm:text-6xl text-5xl leading-none projectHeading opacity-0 translate-y-full flex"
+                    >
+                      <span
+                        class="pe-3 text-transparent font1"
+                        style="-webkit-text-stroke: 1px #f97316"
+                        >2.</span
+                      >Weather Web App (API integration)
+                    </h3>
+                  </div>
+                  <div class="lg:w-[30%] sm:w-2/5 w-full p-2">
+                    <p
+                      class="text-zinc-300 mix-blend-difference lg:text-2xl md:text-xl sm:text-lg text-sm font-light projectParagraph opacity-0 translate-x-full"
+                    >
+                      Tailwind CSS, JavaScript and a weather API to deliver a
+                      seamless user experience. The addition of dynamic dark and
+                      light modes enhances the app's aesthetic appeal.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Project Box -->
+            <div
+              class="block w-full h-full relative group border-b border-black/20 py-12 group projectBox overflow-hidden"
+            >
+              <div
+                class="absolute bottom-0 left-0 w-full h-0 lg:group-hover:h-full bg-white mix-blend-difference -z-10"
+                style="transition: 0.4s"
+              ></div>
+              <div class="lg:block hidden">
+                <img
+                  src="assets/images/arrow.webp"
+                  alt="..."
+                  class="fixed projectArrow z-0 -translate-x-full -translate-y-1/2 pointer-events-none w-64 mix-blend-difference -rotate-45 hidden lg:group-hover:block"
+                  style="transition: 0.7s linear"
+                />
+              </div>
+              <div class="container mx-auto px-5">
+                <div class="flex justify-end mb-10">
+                  <a
+                    target="_blank"
+                    href="https://theharshdev.github.io/note/"
+                    class="group lg:text-3xl md:text-2xl sm:text-xl text-lg leading-none lg:w-16 lg:h-16 md:w-14 md:h-14 sm:w-12 sm:h-12 w-10 h-10 overflow-hidden rounded-full border border-zinc-400 flex justify-center items-center text-zinc-400 mix-blend-difference cursorScale viewProject projectLink opacity-0 -translate-y-full"
+                  >
+                    <i class="bi bi-arrow-up-right cursorScale viewProject"></i>
+                  </a>
+                </div>
+                <div class="flex flex-wrap w-full">
+                  <div class="lg:w-[70%] sm:w-3/5 w-full p-2">
+                    <h3
+                      class="text-orange-500 font3 lg:text-9xl md:text-7xl sm:text-6xl text-5xl leading-none projectHeading opacity-0 translate-y-full flex"
+                    >
+                      <span
+                        class="pe-3 text-transparent font1"
+                        style="-webkit-text-stroke: 1px #f97316"
+                        >3.</span
+                      >Dynamic Notes App (Using loacal storage)
+                    </h3>
+                  </div>
+                  <div class="lg:w-[30%] sm:w-2/5 w-full p-2">
+                    <p
+                      class="text-zinc-300 mix-blend-difference lg:text-2xl md:text-xl sm:text-lg text-sm font-light projectParagraph opacity-0 translate-x-full"
+                    >
+                      Developed in JavaScript, TailwindCSS, HTML and CSS only,
+                      with a good user experience and a eye catching User
+                      Interface, with all CRUD operations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Project Box -->
+            <div
+              class="block w-full h-full relative group border-b border-black/20 py-12 group projectBox overflow-hidden"
+            >
+              <div
+                class="absolute bottom-0 left-0 w-full h-0 lg:group-hover:h-full bg-white mix-blend-difference -z-10"
+                style="transition: 0.4s"
+              ></div>
+              <div class="lg:block hidden">
+                <img
+                  src="assets/images/arrow.webp"
+                  alt="..."
+                  class="fixed projectArrow z-0 -translate-x-full -translate-y-1/2 pointer-events-none w-64 mix-blend-difference -rotate-45 hidden lg:group-hover:block"
+                  style="transition: 0.7s linear"
+                />
+              </div>
+              <div class="container mx-auto px-5">
+                <div class="flex justify-end mb-10">
+                  <a
+                    target="_blank"
+                    href="https://theharshdev.github.io/todo/"
+                    class="group lg:text-3xl md:text-2xl sm:text-xl text-lg leading-none lg:w-16 lg:h-16 md:w-14 md:h-14 sm:w-12 sm:h-12 w-10 h-10 overflow-hidden rounded-full border border-zinc-400 flex justify-center items-center text-zinc-400 mix-blend-difference cursorScale viewProject projectLink opacity-0 -translate-y-full"
+                  >
+                    <i class="bi bi-arrow-up-right cursorScale viewProject"></i>
+                  </a>
+                </div>
+                <div class="flex flex-wrap w-full">
+                  <div class="lg:w-[70%] sm:w-3/5 w-full p-2">
+                    <h3
+                      class="text-orange-500 font3 lg:text-9xl md:text-7xl sm:text-6xl text-5xl leading-none projectHeading opacity-0 translate-y-full flex"
+                    >
+                      <span
+                        class="pe-3 text-transparent font1"
+                        style="-webkit-text-stroke: 1px #f97316"
+                        >4.</span
+                      >ToDo List App (Using loacal storage)
+                    </h3>
+                  </div>
+                  <div class="lg:w-[30%] sm:w-2/5 w-full p-2">
+                    <p
+                      class="text-zinc-300 mix-blend-difference lg:text-2xl md:text-xl sm:text-lg text-sm font-light projectParagraph opacity-0 translate-x-full"
+                    >
+                      TailwindCSS, JavaScript, HTML and CSS are the technologies
+                      which are used to make this beautiful UI and User
+                      Experience and user can perform all CRUD operations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Project Box -->
+            <div
+              class="block w-full h-full relative group border-b border-black/20 py-12 group projectBox overflow-hidden"
+            >
+              <div
+                class="absolute bottom-0 left-0 w-full h-0 lg:group-hover:h-full bg-white mix-blend-difference -z-10"
+                style="transition: 0.4s"
+              ></div>
+              <div class="lg:block hidden">
+                <img
+                  src="assets/images/arrow.webp"
+                  alt="..."
+                  class="fixed projectArrow z-0 -translate-x-full -translate-y-1/2 pointer-events-none w-64 mix-blend-difference -rotate-45 hidden lg:group-hover:block"
+                  style="transition: 0.7s linear"
+                />
+              </div>
+              <div class="container mx-auto px-5">
+                <div class="flex justify-end mb-10">
+                  <a
+                    target="_blank"
+                    href="https://theharshdev.github.io/blog/"
+                    class="group lg:text-3xl md:text-2xl sm:text-xl text-lg leading-none lg:w-16 lg:h-16 md:w-14 md:h-14 sm:w-12 sm:h-12 w-10 h-10 overflow-hidden rounded-full border border-zinc-400 flex justify-center items-center text-zinc-400 mix-blend-difference cursorScale viewProject projectLink opacity-0 -translate-y-full"
+                  >
+                    <i class="bi bi-arrow-up-right cursorScale viewProject"></i>
+                  </a>
+                </div>
+                <div class="flex flex-wrap w-full">
+                  <div class="lg:w-[70%] sm:w-3/5 w-full p-2">
+                    <h3
+                      class="text-orange-500 font3 lg:text-9xl md:text-7xl sm:text-6xl text-5xl leading-none projectHeading opacity-0 translate-y-full flex"
+                    >
+                      <span
+                        class="pe-3 text-transparent font1"
+                        style="-webkit-text-stroke: 1px #f97316"
+                        >5.</span
+                      >Personal Blog Website
+                    </h3>
+                  </div>
+                  <div class="lg:w-[30%] sm:w-2/5 w-full p-2">
+                    <p
+                      class="text-zinc-300 mix-blend-difference lg:text-2xl md:text-xl sm:text-lg text-sm font-light projectParagraph opacity-0 translate-x-full"
+                    >
+                      Bootstrap fuels a seamless interface, balancing aesthetics
+                      and functionality, while JavaScript adds interactivity for
+                      dynamic content and smooth transitions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Project Box -->
+            <div
+              class="block w-full h-full relative group border-b border-black/20 py-12 group projectBox overflow-hidden"
+            >
+              <div
+                class="absolute bottom-0 left-0 w-full h-0 lg:group-hover:h-full bg-white mix-blend-difference -z-10"
+                style="transition: 0.4s"
+              ></div>
+              <div class="lg:block hidden">
+                <img
+                  src="assets/images/arrow.webp"
+                  alt="..."
+                  class="fixed projectArrow z-0 -translate-x-full -translate-y-1/2 pointer-events-none w-64 mix-blend-difference -rotate-45 hidden lg:group-hover:block"
+                  style="transition: 0.7s linear"
+                />
+              </div>
+              <div class="container mx-auto px-5">
+                <div class="flex justify-end mb-10">
+                  <a
+                    target="_blank"
+                    href="https://theharshdev.github.io/lime/"
+                    class="group lg:text-3xl md:text-2xl sm:text-xl text-lg leading-none lg:w-16 lg:h-16 md:w-14 md:h-14 sm:w-12 sm:h-12 w-10 h-10 overflow-hidden rounded-full border border-zinc-400 flex justify-center items-center text-zinc-400 mix-blend-difference cursorScale viewProject projectLink opacity-0 -translate-y-full"
+                  >
+                    <i class="bi bi-arrow-up-right cursorScale viewProject"></i>
+                  </a>
+                </div>
+                <div class="flex flex-wrap w-full">
+                  <div class="lg:w-[70%] sm:w-3/5 w-full p-2">
+                    <h3
+                      class="text-orange-500 font3 lg:text-9xl md:text-7xl sm:text-6xl text-5xl leading-none projectHeading opacity-0 translate-y-full flex"
+                    >
+                      <span
+                        class="pe-3 text-transparent font1"
+                        style="-webkit-text-stroke: 1px #f97316"
+                        >6.</span
+                      >Services & Product based website
+                    </h3>
+                  </div>
+                  <div class="lg:w-[30%] sm:w-2/5 w-full p-2">
+                    <p
+                      class="text-zinc-300 mix-blend-difference lg:text-2xl md:text-xl sm:text-lg text-sm font-light projectParagraph opacity-0 translate-x-full"
+                    >
+                      The Service-Based Company Website is a showcase of my
+                      Tailwind CSS expertise, highlighting a minimalist design
+                      for a sleek and responsive user experience.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Project Box -->
+            <div
+              class="block w-full h-full relative group border-b border-black/20 py-12 group projectBox overflow-hidden"
+            >
+              <div
+                class="absolute bottom-0 left-0 w-full h-0 lg:group-hover:h-full bg-white mix-blend-difference -z-10"
+                style="transition: 0.4s"
+              ></div>
+              <div class="lg:block hidden">
+                <img
+                  src="assets/images/arrow.webp"
+                  alt="..."
+                  class="fixed projectArrow z-0 -translate-x-full -translate-y-1/2 pointer-events-none w-64 mix-blend-difference -rotate-45 hidden lg:group-hover:block"
+                  style="transition: 0.7s linear"
+                />
+              </div>
+              <div class="container mx-auto px-5">
+                <div class="flex justify-end mb-10">
+                  <a
+                    target="_blank"
+                    href="https://theharshdev.github.io/circle/"
+                    class="group lg:text-3xl md:text-2xl sm:text-xl text-lg leading-none lg:w-16 lg:h-16 md:w-14 md:h-14 sm:w-12 sm:h-12 w-10 h-10 overflow-hidden rounded-full border border-zinc-400 flex justify-center items-center text-zinc-400 mix-blend-difference cursorScale viewProject projectLink opacity-0 -translate-y-full"
+                  >
+                    <i class="bi bi-arrow-up-right cursorScale viewProject"></i>
+                  </a>
+                </div>
+                <div class="flex flex-wrap w-full">
+                  <div class="lg:w-[70%] sm:w-3/5 w-full p-2">
+                    <h3
+                      class="text-orange-500 font3 lg:text-9xl md:text-7xl sm:text-6xl text-5xl leading-none projectHeading opacity-0 translate-y-full flex"
+                    >
+                      <span
+                        class="pe-3 text-transparent font1"
+                        style="-webkit-text-stroke: 1px #f97316"
+                        >7.</span
+                      >Circle (The Website)
+                    </h3>
+                  </div>
+                  <div class="lg:w-[30%] sm:w-2/5 w-full p-2">
+                    <p
+                      class="text-zinc-300 mix-blend-difference lg:text-2xl md:text-xl sm:text-lg text-sm font-light projectParagraph opacity-0 translate-x-full"
+                    >
+                      Tailwind CSS, JavaScript, and jQuery, introduces dynamic
+                      dark/light modes. Seamless user experiences are amplified
+                      with cookie integration.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Project Box -->
+            <div
+              class="block w-full h-full relative group border-b border-black/20 py-12 group projectBox overflow-hidden"
+            >
+              <div
+                class="absolute bottom-0 left-0 w-full h-0 lg:group-hover:h-full bg-white mix-blend-difference -z-10"
+                style="transition: 0.4s"
+              ></div>
+              <div class="lg:block hidden">
+                <img
+                  src="assets/images/arrow.webp"
+                  alt="..."
+                  class="fixed projectArrow z-0 -translate-x-full -translate-y-1/2 pointer-events-none w-64 mix-blend-difference -rotate-45 hidden lg:group-hover:block"
+                  style="transition: 0.7s linear"
+                />
+              </div>
+              <div class="container mx-auto px-5">
+                <div class="flex justify-end mb-10">
+                  <a
+                    target="_blank"
+                    href="https://theharshdev.github.io/icchha/"
+                    class="group lg:text-3xl md:text-2xl sm:text-xl text-lg leading-none lg:w-16 lg:h-16 md:w-14 md:h-14 sm:w-12 sm:h-12 w-10 h-10 overflow-hidden rounded-full border border-zinc-400 flex justify-center items-center text-zinc-400 mix-blend-difference cursorScale viewProject projectLink opacity-0 -translate-y-full"
+                  >
+                    <i class="bi bi-arrow-up-right cursorScale viewProject"></i>
+                  </a>
+                </div>
+                <div class="flex flex-wrap w-full">
+                  <div class="lg:w-[70%] sm:w-3/5 w-full p-2">
+                    <h3
+                      class="text-orange-500 font3 lg:text-9xl md:text-7xl sm:text-6xl text-5xl leading-none projectHeading opacity-0 translate-y-full flex"
+                    >
+                      <span
+                        class="pe-3 text-transparent font1"
+                        style="-webkit-text-stroke: 1px #f97316"
+                        >8.</span
+                      >Icchha Foundation(NGO)
+                    </h3>
+                  </div>
+                  <div class="lg:w-[30%] sm:w-2/5 w-full p-2">
+                    <p
+                      class="text-zinc-300 mix-blend-difference lg:text-2xl md:text-xl sm:text-lg text-sm font-light projectParagraph opacity-0 translate-x-full"
+                    >
+                      NGO Website Unveiled: A responsive masterpiece crafted
+                      with Tailwind CSS, JavaScript, and jQuery. Explore the
+                      seamless blend of design and interactivity.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Project Box -->
+            <div
+              class="block w-full h-full relative group border-b border-black/20 py-12 group projectBox overflow-hidden"
+            >
+              <div
+                class="absolute bottom-0 left-0 w-full h-0 lg:group-hover:h-full bg-white mix-blend-difference -z-10"
+                style="transition: 0.4s"
+              ></div>
+              <div class="lg:block hidden">
+                <img
+                  src="assets/images/arrow.webp"
+                  alt="..."
+                  class="fixed projectArrow z-0 -translate-x-full -translate-y-1/2 pointer-events-none w-64 mix-blend-difference -rotate-45 hidden lg:group-hover:block"
+                  style="transition: 0.7s linear"
+                />
+              </div>
+              <div class="container mx-auto px-5">
+                <div class="flex justify-end mb-10">
+                  <a
+                    target="_blank"
+                    href="https://helpemailtales.com/"
+                    class="group lg:text-3xl md:text-2xl sm:text-xl text-lg leading-none lg:w-16 lg:h-16 md:w-14 md:h-14 sm:w-12 sm:h-12 w-10 h-10 overflow-hidden rounded-full border border-zinc-400 flex justify-center items-center text-zinc-400 mix-blend-difference cursorScale viewProject projectLink opacity-0 -translate-y-full"
+                  >
+                    <i class="bi bi-arrow-up-right cursorScale viewProject"></i>
+                  </a>
+                </div>
+                <div class="flex flex-wrap w-full">
+                  <div class="lg:w-[70%] sm:w-3/5 w-full p-2">
+                    <h3
+                      class="text-orange-500 font3 lg:text-9xl md:text-7xl sm:text-6xl text-5xl leading-none projectHeading opacity-0 translate-y-full flex"
+                    >
+                      <span
+                        class="pe-3 text-transparent font1"
+                        style="-webkit-text-stroke: 1px #f97316"
+                        >9.</span
+                      >Help Email Tales
+                    </h3>
+                  </div>
+                  <div class="lg:w-[30%] sm:w-2/5 w-full p-2">
+                    <p
+                      class="text-zinc-300 mix-blend-difference lg:text-2xl md:text-xl sm:text-lg text-sm font-light projectParagraph opacity-0 translate-x-full"
+                    >
+                      Leveraging client-side validation, the project features
+                      both multi-step and traditional contact forms for a
+                      seamless user experience.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Project Box -->
+            <div
+              class="block w-full h-full relative group border-b border-black/20 py-12 group projectBox overflow-hidden"
+            >
+              <div
+                class="absolute bottom-0 left-0 w-full h-0 lg:group-hover:h-full bg-white mix-blend-difference -z-10"
+                style="transition: 0.4s"
+              ></div>
+              <div class="lg:block hidden">
+                <img
+                  src="assets/images/arrow.webp"
+                  alt="..."
+                  class="fixed projectArrow z-0 -translate-x-full -translate-y-1/2 pointer-events-none w-64 mix-blend-difference -rotate-45 hidden lg:group-hover:block"
+                  style="transition: 0.7s linear"
+                />
+              </div>
+              <div class="container mx-auto px-5">
+                <div class="flex justify-end mb-10">
+                  <a
+                    target="_blank"
+                    href="https://printerdriver.support/"
+                    class="group lg:text-3xl md:text-2xl sm:text-xl text-lg leading-none lg:w-16 lg:h-16 md:w-14 md:h-14 sm:w-12 sm:h-12 w-10 h-10 overflow-hidden rounded-full border border-zinc-400 flex justify-center items-center text-zinc-400 mix-blend-difference cursorScale viewProject projectLink opacity-0 -translate-y-full"
+                  >
+                    <i class="bi bi-arrow-up-right cursorScale viewProject"></i>
+                  </a>
+                </div>
+                <div class="flex flex-wrap w-full">
+                  <div class="lg:w-[70%] sm:w-3/5 w-full p-2">
+                    <h3
+                      class="text-orange-500 font3 lg:text-9xl md:text-7xl sm:text-6xl text-5xl leading-none projectHeading opacity-0 translate-y-full flex"
+                    >
+                      <span
+                        class="pe-3 text-transparent font1"
+                        style="-webkit-text-stroke: 1px #f97316"
+                        >10.</span
+                      >Printer Driver Support
+                    </h3>
+                  </div>
+                  <div class="lg:w-[30%] sm:w-2/5 w-full p-2">
+                    <p
+                      class="text-zinc-300 mix-blend-difference lg:text-2xl md:text-xl sm:text-lg text-sm font-light projectParagraph opacity-0 translate-x-full"
+                    >
+                      With client-side validation, our project seamlessly blends
+                      multi-step and traditional forms, ensuring a smooth and
+                      intuitive user experience.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Hire me button -->
+      <div class="container mx-auto px-5 py-20">
+        <a
+          id="hireMeBtn"
+          href="https://wa.me/+918737812696"
+          class="block w-full rounded-full bg-black text-white font1 uppercase text-center leading-none lg:text-8xl md:text-6xl sm:text-4xl text-2xl cursorScale opacity-0 lg:py-32 md:py-24 sm:py-16 py-12 tracking-wider group scale-75 relative overflow-hidden"
+        >
+          <div
+            class="relative z-10 font1 cursorScale flex justify-center items-center"
+          >
+            Hire me
+            <span
+              class="relative ms-2 overflow-hidden lg:w-24 lg:h-24 md:w-16 md:h-16 sm:w-10 sm:h-10 w-6 h-6"
+            >
+              <i
+                class="bi bi-arrow-up-right cursorScale block lg:w-24 lg:h-24 md:w-16 md:h-16 sm:w-10 sm:h-10 w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-full group-hover:top-0"
+                style="transition: 0.4s"
+              ></i
+              ><i
+                class="bi bi-arrow-up-right cursorScale block lg:w-24 lg:h-24 md:w-16 md:h-16 sm:w-10 sm:h-10 w-6 h-6 absolute top-1/2 left-1/2 translate-y-full -translate-x-1/2 group-hover:-translate-y-1/2"
+                style="transition: 0.4s"
+              ></i>
+            </span>
+          </div>
+          <div
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-96 h-96 rounded-full bg-zinc-800 z-0 cursorScale scale-0 group-hover:scale-[5] origin-bottom"
+            style="transition: 0.7s linear"
+          ></div>
+        </a>
+      </div>
+      <!-- Contact Section or footer -->
+      <footer id="contactSection" class="overflow-hidden w-screen">
+        <div class="pt-32">
+          <div class="container mx-auto px-5 pb-44">
+            <div>
+              <h2
+                id="contactTxt"
+                class="text-black font-light lg:text-7xl md:text-6xl sm:text-5xl text-3xl uppercase leading-none -translate-x-full opacity-0"
+              >
+                Need help with your project? Want to collaborate with Stay In
+                Touch in another way? Reach out
+                <a
+                  href="mailto:knp.harsh@gmail.com"
+                  class="cursorScale text-orange-500"
+                  >here</a
+                >. I look forward to connecting :-)
+              </h2>
+            </div>
+          </div>
+          <div class="relative">
+            <div
+              class="bg-black absolute top-0 left-0 w-full h-full -z-20"
+            ></div>
+            <!-- lines -->
+            <div
+              class="flex justify-between absolute top-0 left-0 w-full h-full -z-10 lg:px-24 md:px-16 sm:px-14 px-8"
+            >
+              <div class="border-s border-zinc-500/40"></div>
+              <div class="border-x border-zinc-500/40 border-s-0"></div>
+              <div class="border-x border-zinc-500/40 border-s-0"></div>
+              <div class="border-x border-zinc-500/40 border-s-0"></div>
+            </div>
+            <!--Footer Social links -->
+            <div class="flex items-center flex-wrap bg-black">
+              <div
+                class="sm:w-1/2 w-full border-b sm:border-e border-zinc-300/20 overflow-hidden"
+              >
+                <a
+                  href="https://wa.me/+918737812696"
+                  class="cursorScale flex items-center justify-between projectHeading opacity-0 translate-y-full hover:tracking-widest w-full font-light text-white uppercase lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:p-10 md:p-8 sm:p-7 p-5"
+                  >Whatsapp <i class="bi bi-arrow-up-right cursorScale"></i
+                ></a>
+              </div>
+              <div
+                class="sm:w-1/2 w-full border-b border-zinc-300/20 overflow-hidden"
+              >
+                <a
+                  href="https://www.linkedin.com/in/theharshdev/"
+                  class="cursorScale flex items-center justify-between projectHeading opacity-0 translate-y-full hover:tracking-widest w-full font-light text-white uppercase lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:p-10 md:p-8 sm:p-7 p-5"
+                  >linkedin <i class="bi bi-arrow-up-right cursorScale"></i
+                ></a>
+              </div>
+              <div
+                class="sm:w-1/2 w-full border-b sm:border-e border-zinc-300/20 overflow-hidden"
+              >
+                <a
+                  href="tel:+918737812696"
+                  class="cursorScale flex items-center justify-between projectHeading opacity-0 translate-y-full hover:tracking-widest w-full font-light text-white uppercase lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:p-10 md:p-8 sm:p-7 p-5"
+                  >call me <i class="bi bi-arrow-up-right cursorScale"></i
+                ></a>
+              </div>
+              <div
+                class="sm:w-1/2 w-full border-b border-zinc-300/20 overflow-hidden"
+              >
+                <a
+                  href="mailto:knp.harsh@gmail.com"
+                  class="cursorScale flex items-center justify-between projectHeading opacity-0 translate-y-full hover:tracking-widest w-full font-light text-white uppercase lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:p-10 md:p-8 sm:p-7 p-5"
+                  >email me <i class="bi bi-arrow-up-right cursorScale"></i
+                ></a>
+              </div>
+            </div>
+            <div class="w-full overflow-hidden mt-5 relative">
+              <div
+                class="absolute w-full h-full top-0 left-0 bg-gradient-to-r from-black via-transparent to-black z-10"
+              ></div>
+              <div class="flex items-center w-full">
+                <h3
+                  class="lg:text-8xl md:text-7xl sm:text-6xl text-5xl px-4 text-transparent uppercase font1 textAnimation whitespace-nowrap"
+                  style="-webkit-text-stroke: 1px lightgray"
+                >
+                  Let's Build Together - Your Dream, My Code
+                </h3>
+                <h3
+                  class="lg:text-8xl md:text-7xl sm:text-6xl text-5xl px-4 text-transparent uppercase font1 textAnimation whitespace-nowrap"
+                  style="-webkit-text-stroke: 1px lightgray"
+                >
+                  Let's Build Together - Your Dream, My Code
+                </h3>
+                <h3
+                  class="lg:text-8xl md:text-7xl sm:text-6xl text-5xl px-4 text-transparent uppercase font1 textAnimation whitespace-nowrap"
+                  style="-webkit-text-stroke: 1px lightgray"
+                >
+                  Let's Build Together - Your Dream, My Code
+                </h3>
+              </div>
+            </div>
+            <!-- Remaining footer -->
+            <div class="mt-28 container mx-auto px-5">
+              <div class="flex flex-wrap items-center justify-between">
+                <h3
+                  id="footerHeading"
+                  class="font1 lg:text-8xl -translate-x-full opacity-0 md:text-7xl sm:text-6xl text-3xl text-white lg:w-1/2 md:w-2/3 sm:w-3/4 w-full"
+                >
+                  Stay In Touch!
+                </h3>
+                <div id="footerContact" class="py-3 translate-x-full opacity-0">
+                  <h3 class="text-white font-medium text-lg uppercase">
+                    Hire me
+                  </h3>
+                  <a
+                    href="mailto:knp.harsh@gmail.com"
+                    class="text-zinc-400 font-light sm:text-base text-sm block w-full md:text-end text-start hover:text-white transition-all cursorScale"
+                  >
+                    knp.harsh@gmail.com
+                  </a>
+                  <a
+                    href="tel:+918737812696"
+                    class="text-zinc-400 font-light sm:text-base text-sm block w-full md:text-end text-start hover:text-white transition-all cursorScale"
+                  >
+                    +91 8737812696
+                  </a>
+                </div>
+              </div>
+              <div id="footerNav" class="mt-24 translate-y-full opacity-0">
+                <button
+                  type="button"
+                  class="md:text-base aboutBtn text-sm text-zinc-400 hover:text-white transition-all cursorScale uppercase p-1"
+                >
+                  About
+                </button>
+                <button
+                  type="button"
+                  class="md:text-base portfolioBtn text-sm text-zinc-400 hover:text-white transition-all cursorScale uppercase p-1"
+                >
+                  Work
+                </button>
+                <button
+                  type="button"
+                  class="md:text-base text-sm homeBtn text-orange-500 hover:text-white transition-all cursorScale uppercase p-1"
+                >
+                  Go back to top <i class="bi bi-arrow-up homeBtn"></i>
+                </button>
+              </div>
+              <p
+                class="text-zinc-300 text-center px-5 text-sm font-light mt-44 py-5"
+              >
+                &copy; 2024 Harsh Kushwaha. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
