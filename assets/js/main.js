@@ -1,17 +1,11 @@
 const output = document.getElementById("output");
 const preloader = document.getElementById("preloader");
 const remainingBody = document.getElementById("remainingBody");
-const loadingLine = document.getElementById("loadingLine");
-const loadingTxt = document.getElementById("loadingTxt");
 let increseLoadingNum = 0;
 
 const increseLoading = setInterval(() => {
   increseLoadingNum = increseLoadingNum + 1;
   output.textContent = increseLoadingNum;
-  loadingLine.style.width = `${increseLoadingNum}%`;
-  if (increseLoadingNum >= 50) {
-    loadingTxt.innerText = "(Oh! this stuff is so heavy)";
-  }
   if (increseLoadingNum >= 100) {
     clearInterval(increseLoading);
     output.textContent = 100;
@@ -677,3 +671,20 @@ function portfolioTxtInView() {
 
 window.addEventListener("scroll", portfolioTxtInView);
 window.addEventListener("load", portfolioTxtInView);
+
+const talkArrowBox = document.getElementById("talkArrowBox");
+const talkArrow = document.getElementById("talkArrow");
+
+talkArrowBox.addEventListener("mousemove", (event) => {
+  const x = event.clientX;
+  const y = event.clientY;
+  talkArrow.style.top = `${y}px`;
+  talkArrow.style.left = `${x}px`;
+  cursorBg.style.display = "none";
+  cursorDot.style.opacity = "0";
+});
+
+talkArrowBox.addEventListener("mouseleave", () => {
+  cursorBg.style.display = "flex";
+  cursorDot.style.opacity = "1";
+});

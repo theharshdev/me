@@ -73,13 +73,6 @@
       style="background-image: url('assets/images/bg.webp'); transition: 2s"
     >
       <div class="lg:px-12 md:px-10 sm:px-8 px-5 sm:py-12 py-32 w-full">
-        <div id="loadingLine" class="bg-zinc-800 h-0.5 w-0 mb-5"></div>
-        <div
-          id="loadingTxt"
-          class="text-zinc-900 md:text-base text-sm my-5 font-medium"
-        >
-          (Fake Loading)
-        </div>
         <div class="flex justify-end w-full">
           <h3
             class="text-orange-500 lg:text-[300px] md:text-[250px] sm:text-[150px] text-[100px] font3 leading-none"
@@ -554,8 +547,26 @@
             >call me</a
           >
         </div>
+        <!-- Talk Image container -->
+        <div class="px-5 lg:py-28 md:py-24 sm:py-20 py-0 container mx-auto">
+          <div id="talkArrowBox" class="relative group contactBtn">
+            <img src="assets/images/talkImg.webp" alt="..." class="w-full" />
+            <div
+              id="talkArrow"
+              class="w-96 fixed -translate-x-full -translate-y-1/2 z-10 pointer-events-none"
+              style="transition: 0.5s linear"
+            >
+              <img
+                src="assets/images/arrowTalk.webp"
+                alt="..."
+                class="w-full scale-0 group-hover:scale-100 rotate-45 group-hover:rotate-0 lg:block hidden"
+                style="transition: 0.3s linear"
+              />
+            </div>
+          </div>
+        </div>
         <!-- Skills text slider -->
-        <div class="w-full overflow-hidden">
+        <div class="w-full overflow-hidden lg:pt-52 pt-40">
           <div class="flex items-center w-full">
             <div
               class="lg:text-7xl md:text-6xl sm:text-5xl text-4xl text-black px-4 uppercase textAnimation whitespace-nowrap flex items-center"
