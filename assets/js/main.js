@@ -3,6 +3,7 @@ const preloader = document.getElementById("preloader");
 const remainingBody = document.getElementById("remainingBody");
 let increseLoadingNum = 0;
 
+// Loading percentage on initial screen -------------
 const increseLoading = setInterval(() => {
   increseLoadingNum = increseLoadingNum + 1;
   output.textContent = increseLoadingNum;
@@ -17,7 +18,7 @@ const increseLoading = setInterval(() => {
     setTimeout(ringCircleInView, 600);
     setTimeout(mainTopTxtInView, 700);
   }
-}, 80);
+}, 0);
 
 const line = document.getElementById("line");
 const cursor = document.getElementById("cursor");
@@ -49,15 +50,19 @@ let menuClosed = true;
 window.addEventListener("scroll", scrollPercantage);
 window.addEventListener("load", scrollPercantage);
 
+// Scroll spy line -------------
 function scrollPercantage() {
   const scrollPosition = window.scrollY;
   const totalHeight = document.body.scrollHeight - window.innerHeight;
   const scrollPercentage = (scrollPosition / totalHeight) * 100;
+  // increasing the width ---------
   line.style.width = `${scrollPercentage}%`;
   scrollPercentageTxt.innerHTML = `${scrollPercentage.toFixed(2)}`;
 }
 
+// Js code for custom cursor ----------
 window.addEventListener("mousemove", (event) => {
+  // Getting x and y cursor co-ordinates --------
   const x = event.clientX;
   const y = event.clientY;
   cursor.style.display = "block";
@@ -68,12 +73,14 @@ window.addEventListener("mousemove", (event) => {
   cursorDot.style.left = `${x}px`;
   const target = event.target;
 
+  // Hover effect when the cursor is on a clickable element -------
   if (target.classList.contains("cursorScale")) {
     cursorBg.style.transform = "scale(6)";
   } else {
     cursorBg.style.transform = "scale(1)";
   }
 
+  // Download button -------
   if (
     target.classList.contains("downloadCv") &&
     target.classList.contains("cursorScale")
@@ -107,6 +114,7 @@ window.addEventListener("mousemove", (event) => {
   }
 });
 
+// Hide the cursor when the cursor is not on the viewport -------------
 document.addEventListener("mouseleave", () => {
   cursor.style.display = "none";
   cursorDot.style.display = "none";
@@ -118,6 +126,7 @@ navLinks.forEach((navLink) => {
   navLink.addEventListener("click", menuToggle);
 });
 
+// Menu toggler function ---------
 function menuToggle() {
   if (menuClosed) {
     menuBtn.innerHTML = `<i
