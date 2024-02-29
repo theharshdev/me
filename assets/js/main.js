@@ -18,7 +18,7 @@ const increseLoading = setInterval(() => {
     setTimeout(ringCircleInView, 600);
     setTimeout(mainTopTxtInView, 700);
   }
-}, 0);
+}, 50);
 
 const line = document.getElementById("line");
 const cursor = document.getElementById("cursor");
