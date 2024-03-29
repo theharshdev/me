@@ -18,7 +18,7 @@ const increseLoading = setInterval(() => {
     setTimeout(ringCircleInView, 600);
     setTimeout(mainTopTxtInView, 700);
   }
-}, 50);
+}, 0);
 
 const line = document.getElementById("line");
 const cursor = document.getElementById("cursor");
@@ -415,25 +415,6 @@ function footerContactInView() {
 window.addEventListener("scroll", footerContactInView);
 window.addEventListener("load", footerContactInView);
 
-const footerHeading = document.getElementById("footerHeading");
-
-function footerHeadingInView() {
-  const rect = footerHeading.getBoundingClientRect();
-
-  if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-    footerHeading.classList.remove("-translate-x-full");
-    footerHeading.classList.remove("opacity-0");
-    footerHeading.style.transition = "1.5s";
-  } else {
-    footerHeading.classList.add("-translate-x-full");
-    footerHeading.classList.add("opacity-0");
-    footerHeading.style.transition = "0s";
-  }
-}
-
-window.addEventListener("scroll", footerHeadingInView);
-window.addEventListener("load", footerHeadingInView);
-
 const workBottomPara = document.getElementById("workBottomPara");
 
 function workBottomParaInView() {
@@ -581,14 +562,14 @@ function paraInView() {
     const paraSpans = para.querySelectorAll(".paraspan");
     paraSpans.forEach((paraSpan, id) => {
       paraSpan.style.transition = "0.7s";
-      if (rect.top <= window.innerHeight / 1.2 && rect.bottom >= 0) {
+      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
         setTimeout(() => {
           paraSpan.classList.remove("translate-y-[200%]");
-        }, id * 50);
+        }, id * 35);
       } else {
         setTimeout(() => {
           paraSpan.classList.add("translate-y-[200%]");
-        }, id * 50);
+        }, id * 35);
       }
     });
   });

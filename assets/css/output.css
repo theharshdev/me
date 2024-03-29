@@ -1034,6 +1034,10 @@ video {
   overflow-x: hidden;
 }
 
+.text-clip {
+  text-overflow: clip;
+}
+
 .whitespace-nowrap {
   white-space: nowrap;
 }
@@ -1155,6 +1159,10 @@ video {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
 .from-black {
   --tw-gradient-from: #000 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
@@ -1164,6 +1172,18 @@ video {
 .from-white {
   --tw-gradient-from: #fff var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-zinc-200 {
+  --tw-gradient-from: #e4e4e7 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(228 228 231 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-zinc-200\/60 {
+  --tw-gradient-from: rgb(228 228 231 / 0.6) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(228 228 231 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -1178,6 +1198,10 @@ video {
 
 .to-white {
   --tw-gradient-to: #fff var(--tw-gradient-to-position);
+}
+
+.to-transparent {
+  --tw-gradient-to: transparent var(--tw-gradient-to-position);
 }
 
 .bg-cover {
@@ -1431,12 +1455,52 @@ video {
   line-height: 1rem;
 }
 
+.text-\[10vw\] {
+  font-size: 10vw;
+}
+
+.text-\[0vw\] {
+  font-size: 0vw;
+}
+
+.text-\[20vw\] {
+  font-size: 20vw;
+}
+
+.text-\[30vw\] {
+  font-size: 30vw;
+}
+
+.text-\[40vw\] {
+  font-size: 40vw;
+}
+
+.text-\[4vw\] {
+  font-size: 4vw;
+}
+
+.text-\[46vw\] {
+  font-size: 46vw;
+}
+
+.text-\[5vw\] {
+  font-size: 5vw;
+}
+
+.text-\[50vw\] {
+  font-size: 50vw;
+}
+
 .font-bold {
   font-weight: 700;
 }
 
 .font-extrabold {
   font-weight: 800;
+}
+
+.font-extralight {
+  font-weight: 200;
 }
 
 .font-light {
@@ -1469,6 +1533,14 @@ video {
 
 .tracking-wider {
   letter-spacing: 0.05em;
+}
+
+.tracking-tighter {
+  letter-spacing: -0.05em;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
 }
 
 .text-black {
@@ -1512,6 +1584,26 @@ video {
 .text-zinc-800 {
   --tw-text-opacity: 1;
   color: rgb(39 39 42 / var(--tw-text-opacity));
+}
+
+.text-\[\] {
+  color: ;
+}
+
+.text-\[1\] {
+  color: 1;
+}
+
+.text-\[10\] {
+  color: 10;
+}
+
+.text-\[10v\] {
+  color: 10v;
+}
+
+.text-\[vw\] {
+  color: vw;
 }
 
 .opacity-0 {
